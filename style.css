@@ -118,6 +118,9 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        transition: top .3s;
+        top: 0%;
     }
 }
 
@@ -126,18 +129,35 @@ body {
     height: 100%;
     width: 100%;
     background-color: rgb(255, 255, 255);
-    top: 0%;
     padding-top: var(--nav-height);
     display: flex;
     justify-content: center;
-    left: 100%;
+    top: -100%;
+    transition: top 1s .1s;
 
     .links{
         width: 90%;
-        background-color: red;
+        background-color: rgb(160, 223, 160);
+        border-radius: .5rem;
         margin-top: var(--nav-height);
+        text-align: center;
+        padding-top: 2rem;
+    }
+}
+
+body:has(#menu-state:checked){
+
+    .nav-bar{
+        .title{
+            top: var(--nav-height);
+            transition: top .5s 1s;
+        }
     }
 
+    .side-bar{
+        top: 0%;
+        transition: top 1s;
+    }
 }
 
 .search-container {
