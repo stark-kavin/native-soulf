@@ -134,6 +134,8 @@ body {
     justify-content: center;
     top: -100%;
     transition: top 1s .1s;
+    box-sizing: border-box;
+    padding-bottom:2rem;
 
     .links{
         width: 90%;
@@ -146,6 +148,9 @@ body {
 }
 
 body:has(#menu-state:checked){
+
+    height: 100vh;
+    overflow: hidden;
 
     .nav-bar{
         .title{
