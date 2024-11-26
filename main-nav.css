@@ -9,7 +9,7 @@
 
 :root {
     font-size: 16px;
-    --nav-height:4rem;
+    --nav-height: 4rem;
 }
 
 .nav-bar {
@@ -18,7 +18,7 @@
     display: flex;
     position: sticky;
     width: 100%;
-    top:0;
+    top: 0;
     z-index: 1001;
 
     >* {
@@ -26,15 +26,48 @@
         height: 100%;
     }
 
-    .logo-container {
+    .cart-container {
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
 
-        img {
+        .icon {
             height: 50%;
             aspect-ratio: 1;
-            background-color: grey;
+            fill: black;
+            position: relative;
+            cursor: pointer;
+
+            &::after {
+                content: attr(data-items);
+                font-size: .5rem;
+                position: absolute;
+                height: .7rem;
+                width: .7rem;
+                background-color: rgb(0, 170, 54);
+                background-color: #7f7cd4;
+                padding: .1rem;
+                font-weight: 800;
+                font-family: "Poppins";
+                color: aliceblue;
+                right: -0.3rem;
+                top: -0.3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+            }
+
+            svg {
+                height: 100%;
+                width: 100%;
+                fill: black;
+            }
+
         }
     }
 
@@ -53,23 +86,34 @@
             }
 
             .menu {
-                display: flex;
                 position: relative;
-                flex-direction: column;
                 height: 100%;
                 width: 100%;
-                justify-content: space-around;
                 transition: top .5s linear;
 
                 .line {
-                    height: .3rem;
-                    background-color: rgb(45, 45, 45);
-                    position: relative;
                     width: 100%;
-                    top: 0%;
-                    border-radius:.5rem;
-                    transition: rotate .5s .0s , top .5s .5s, opacity 0s .5s;
+                    height: .3rem;
+                    position: absolute;
+                    background-color: black;
+                    border-radius: .5rem;
+                    left: 0%;
+                    transition: top .5s .5s, transform .5s, opacity 0s .5s;
+
+                    &:first-child {
+                        top: 0;
+                    }
+
+                    &:nth-child(2) {
+                        top: calc(100% / 2 - .3rem / 2);
+                    }
+
+                    &:last-child {
+                        top: calc(100% - .3rem);
+                    }
+
                 }
+
             }
         }
 
@@ -77,25 +121,23 @@
 
             .menu-btn {
                 .menu {
-                    top: calc(-.3rem / 2);
-                    transition: top .5s linear;
 
-                    .line{
-                        transition: rotate .5s .5s ease, top .5s ease, opacity 0s .5s;
-                    }
+                    .line {
+                        top: calc(100% / 2 - .3rem / 2);
+                        transition: top .5s, transform .5s .5s, opacity 0s .5s;
 
-                    .line:first-child {
-                        top: calc( 50% - .3rem / 2 );
-                        rotate: -45deg;
-                    }
+                        &:first-child {
+                            transform: rotate(45deg);
+                        }
 
-                    .line:last-child {
-                        top: calc( -50% + .3rem * 2 );
-                        rotate: 45deg;
-                    }
+                        &:last-child {
+                            transform: rotate(-45deg);
+                        }
 
-                    .line:nth-child(2){
-                        opacity: 0;
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
+
                     }
 
                 }
@@ -118,44 +160,384 @@
     }
 }
 
-.side-bar{
+.side-bar {
     position: fixed;
     height: 100%;
     width: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(1rem);
     padding-top: var(--nav-height);
     display: flex;
     justify-content: center;
     top: -100%;
     transition: top 1s .1s;
     box-sizing: border-box;
-    padding-bottom:2rem;
+    padding-bottom: 2rem;
     z-index: 1000;
 
-    .links{
+    .links {
         width: 90%;
-        background-color: rgb(160, 223, 160);
+        /* background-color: rgb(160, 223, 160); */
         border-radius: .5rem;
         margin-top: var(--nav-height);
         text-align: center;
-        padding-top: 2rem;
+        gap: 1rem;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        overflow: auto unset;
+
+        .link {
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            gap: 1rem;
+            box-sizing: border-box;
+            width: 100%;
+            border-radius: .5rem;
+            border-bottom: 1px solid rgba(52, 52, 52, 0.5);
+            border-right: 1px solid rgba(52, 52, 52, 0.5);
+            background-color: #9fffc8;
+            cursor: pointer;
+            position: relative;
+            color: black;
+            text-decoration: none;
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                filter: blur(.3rem);
+                left: .3rem;
+                top: .3rem;
+                z-index: -1;
+                border-radius: .5rem;
+            }
+
+            &:not(.active) {
+                background-color: rgba(230, 230, 230, 1);
+
+                &::after {
+                    opacity: .2;
+                }
+
+                .txt {
+                    opacity: .8;
+                    font-weight: 400;
+                }
+
+                svg {
+                    opacity: .8;
+                }
+
+            }
+
+            svg {
+                fill: rgb(0, 0, 0);
+                height: 2rem;
+                width: auto;
+            }
+
+            .txt {
+                font-family: "Playwrite DE Grund";
+                font-weight: 800;
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                height: fit-content;
+            }
+        }
     }
 }
 
-body:has(#menu-state:checked){
+body:has(#menu-state:checked) {
 
     height: 100vh;
     overflow: hidden;
 
-    .nav-bar{
-        .title{
+    .nav-bar {
+        .title {
             top: var(--nav-height);
             transition: top .5s 1s;
         }
     }
 
-    .side-bar{
+    .side-bar {
         top: 0%;
         transition: top 1s;
+    }
+}
+
+
+
+.cart-page {
+    position: fixed;
+    z-index: 1005;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(1rem);
+    left: 0%;
+    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+
+    transition:opacity .5s , top .5s;
+    
+
+    >input[type="radio"]{
+        width: 0;
+        opacity: 0;
+    }
+
+    .cart-card {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.5);
+        padding: 1rem;
+        border-radius: .5rem;
+        width: 80%;
+        max-width: 30rem;
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            height: 1.5rem;
+            align-items: center;
+
+            .txt {
+                font-size: .9rem;
+                font-family: "Poppins";
+                font-weight: 600;
+                line-height: .9rem;
+            }
+
+            label {
+                height: 80%;
+                aspect-ratio: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                svg{
+                    height: 100%;
+                    width: 100%;
+                    fill: black;
+                }
+            }
+        }
+
+        .cart-items {
+            margin-top: 1rem;
+
+
+            .cart-item {
+                --height: 4rem;
+                display: grid;
+                height: var(--height);
+                grid-template-columns: var(--height) 1fr 1fr;
+
+                box-sizing: border-box;
+                column-gap: .5rem;
+
+                .cart-item-img {
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgb(255, 255, 255);
+                }
+
+                .details {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 1rem;
+
+                    .cart-item-name {
+                        font-size: .9rem;
+                        font-family: "Poppins";
+                        font-weight: 600;
+                        color: black;
+                        text-decoration: none;
+                        line-height: 1rem;
+                    }
+
+                    .cart-item-quantity {
+                        line-height: 1rem;
+                        font-size: .7rem;
+                        font-family: "Poppins";
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+
+                        svg {
+                            height: 100%;
+                            width: .9rem;
+                            fill: rgb(0, 55, 255);
+                        }
+
+                    }
+
+                    .price {
+                        height: 100%;
+                        font-family: "Poppins";
+                        display: flex;
+                        align-items: end;
+
+                        .accual-price::before,
+                        .current-price::before {
+                            content: "₹";
+                        }
+
+                        .accual-price {
+                            font-size: .8rem;
+                            text-decoration: line-through;
+                        }
+
+                        .current-price {
+                            font-weight: 600;
+                            font-size: 1rem;
+                            margin-left: .4rem;
+                        }
+                    }
+                }
+
+                .details2 {
+                    display: flex;
+                    flex-direction: column;
+
+                    .no-of-item-container {
+                        height: 50%;
+                        width: 100%;
+                        display: flex;
+                        box-sizing: border-box;
+                        padding: .1rem;
+                        gap: .5rem;
+
+                        button {
+                            flex: 1;
+                            height: 100%;
+                            width: auto;
+                            border-radius: .5rem;
+                            aspect-ratio: 1 / 1;
+                            flex-grow: unset;
+                            box-sizing: border-box;
+                            border: none;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+
+
+                            svg {
+                                height: 80%;
+                                width: 80%;
+                            }
+
+                            &:first-child {
+                                background-color: rgb(202, 255, 202);
+
+                                svg {
+                                    fill: green;
+                                }
+
+                                &:active {
+                                    background-color: rgb(0, 45, 0);
+
+                                    svg {
+                                        fill: rgb(30, 255, 30);
+                                    }
+                                }
+                            }
+
+                            &:last-child {
+                                background-color: rgb(255, 202, 202);
+
+                                svg {
+                                    fill: red;
+
+                                    &:last-child {
+                                        display: none;
+                                    }
+                                }
+
+                                &:active {
+                                    background-color: rgb(45, 0, 0);
+
+                                    svg {
+                                        fill: rgb(255, 30, 30);
+                                    }
+                                }
+                            }
+
+                        }
+
+                        button[data-delete="true"] {
+                            svg {
+                                &:first-child {
+                                    display: none;
+                                }
+
+                                &:last-child {
+                                    display: unset;
+                                }
+                            }
+                        }
+
+                        select {
+                            width: 100%;
+                            height: 100%;
+                            box-sizing: border-box;
+                            flex: 1;
+                            appearance: none;
+                            -webkit-appearance: none;
+                            border: none;
+                            text-align: center;
+                            font-family: "Poppins";
+                            font-weight: 600;
+                            font-size: 1.1rem;
+                        }
+
+                        select::-ms-expand {
+                            display: none;
+                        }
+                    }
+
+                    .sub-total {
+                        display: flex;
+                        align-items: end;
+                        justify-content: end;
+                        height: 100%;
+                        gap: .2rem;
+
+                        &::before {
+                            content: "Subtotal:";
+                            font-size: .6rem;
+                            font-family: "Poppins";
+                        }
+
+                        .ammount {
+                            font-size: 1rem;
+                            font-family: "Poppins";
+                            font-weight: 600;
+                            line-height: 1rem;
+
+                            &::before {
+                                content: "₹";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body:has(#close:checked){
+    .cart-page{
+        top: 20%;
+        opacity: 0;
+        pointer-events: none;
     }
 }

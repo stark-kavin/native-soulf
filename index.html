@@ -7,24 +7,27 @@
     <title>Native Soulf</title>
     <link rel="stylesheet" href="./home.css">
     <link rel="stylesheet" href="./main-nav.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 </head>
 
 <body>
     <nav class="nav-bar">
-        <div class="logo-container">
-            <img src="" alt="">
-        </div>
-        <div class="title">Native Soulf</div>
-        <div class="menu-container">
-            <label for="menu-state" class="menu-btn">
+        <label for="menu-state" class="menu-container">
+            <div class="menu-btn">
                 <input type="checkbox" id="menu-state">
                 <div class="menu">
                     <div class="line"></div>
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
-            </label>
-        </div>
+            </div>
+        </label>
+        <div class="title">Native Soulf</div>
+        <label for="open" class="cart-container">
+            <abbr title="1 items in cart" class="icon" data-items="1">
+                <svg xmlns="http://www.w3.org/2000/svg"  height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg>
+            </abbr>
+        </label>
     </nav>
 
     <div class="search-container">
@@ -42,7 +45,33 @@
 
     <div class="side-bar">
         <div class="links">
-            <i>all links inga irukum</i>
+            <a class="link active" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+                <div class="txt">Home</div>
+            </a>
+
+            <a class="link" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m260-520 220-360 220 360H260ZM700-80q-75 0-127.5-52.5T520-260q0-75 52.5-127.5T700-440q75 0 127.5 52.5T880-260q0 75-52.5 127.5T700-80Zm-580-20v-320h320v320H120Zm580-60q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29Zm-500-20h160v-160H200v160Zm202-420h156l-78-126-78 126Zm78 0ZM360-340Zm340 80Z"/></svg>
+                <div class="txt">Categories</div>
+            </a>
+
+            <a href="#" class="link">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-160v-516L82-846l72-34 94 202h464l94-202 72 34-78 170v516H160Zm240-280h160q17 0 28.5-11.5T600-480q0-17-11.5-28.5T560-520H400q-17 0-28.5 11.5T360-480q0 17 11.5 28.5T400-440ZM240-240h480v-358H240v358Zm0 0v-358 358Z"/></svg>
+                <div class="txt">Orders</div>
+            </a>
+
+            <a href="#" class="link">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg>
+                <div class="txt">Cart</div>
+            </a>
+
+            <a href="#" class="link">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+                <div class="txt">Profile</div>
+            </a>
+
+
+
         </div>
     </div>
 
@@ -75,13 +104,10 @@
                     <img style="object-fit: cover;" src="./images/Screenshot from 2024-11-22 05-53-52.png" alt="">
                     <div class="name">Useless</div>
                 </div>
-
-
+                
             </div>
         </div>
     </div>
-
-    
 
     <div class="categories-container">
         <div class="categories-card">
@@ -106,22 +132,70 @@
                     <img src="./images/Screenshot from 2024-11-22 05-53-52.png" alt="">
                     <div class="name">Velaku Ennai</div>
                 </div>
-                
-
-
             </div>
         </div>
     </div>
-
-    
-
-
 
     <datalist id="products">
         <option value="Coconet Oil">Coconet Oil</option>
         <option value="Groundnut Oil">Groundnut Oil</option>
     </datalist>
 
+
+    <div class="cart-page">
+
+        <input type="radio" name="cart" id="open">
+        <input type="radio" name="cart" id="close">
+
+        <div class="cart-card">
+            <div class="head">
+                <div class="txt">Your Cart</div>
+                <label for="close"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></label>
+            </div>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img class="cart-item-img" src="./images/ai-generated-sunflower-oil-in-glass-free-png.png" alt="">
+                    <div class="details">
+                        <a href="#" class="cart-item-name">Sunflower Oil</a>
+                        <div class="cart-item-quantity">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M491-200q12-1 20.5-9.5T520-230q0-14-9-22.5t-23-7.5q-41 3-87-22.5T343-375q-2-11-10.5-18t-19.5-7q-14 0-23 10.5t-6 24.5q17 91 80 130t127 35ZM480-80q-137 0-228.5-94T160-408q0-100 79.5-217.5T480-880q161 137 240.5 254.5T800-408q0 140-91.5 234T480-80Zm0-80q104 0 172-70.5T720-408q0-73-60.5-165T480-774Q361-665 300.5-573T240-408q0 107 68 177.5T480-160Zm0-320Z"/></svg>
+                            1.5 Ltr
+                        </div>
+                        <div class="price">
+                            <div class="accual-price">305</div>
+                            <div class="current-price">275</div>
+                        </div>
+                    </div>
+                    <div class="details2">
+                        <div class="no-of-item-container">
+                            <button type="button" class="add-btn" onclick="changeCartItemQuantity(this,1)">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                            </button>
+                            <select name="" id="" data-max="5">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <button type="button" class="minus-btn" data-delete="true" onclick="changeCartItemQuantity(this,-1)">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-440v-80h560v80H200Z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+                            </button>
+                        </div>
+                        <div class="sub-total">
+                            <div class="ammount">275</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./main-nav.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 </body>
 
 </html>
