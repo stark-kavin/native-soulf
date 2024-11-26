@@ -145,7 +145,7 @@
     <div class="cart-page">
 
         <input type="radio" name="cart" id="open">
-        <input type="radio" name="cart" id="close">
+        <input type="radio" name="cart" id="close" checked>
 
         <div class="cart-card">
             <div class="head">
@@ -171,7 +171,7 @@
                             <button type="button" class="add-btn" onclick="changeCartItemQuantity(this,1)">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                             </button>
-                            <select name="" id="" data-max="5">
+                            <select name="" id="select-cart" onclick="selectValueChange(this)" data-max="5">
                                 <option value="1" selected>1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -184,7 +184,7 @@
                             </button>
                         </div>
                         <div class="sub-total">
-                            <div class="ammount">275</div>
+                            <div class="ammount" id="sub_total">275</div>
                         </div>
                     </div>
                 </div>
@@ -195,7 +195,7 @@
 
 
     <script src="./main-nav.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js" defer></script>
 </body>
 
 </html>
