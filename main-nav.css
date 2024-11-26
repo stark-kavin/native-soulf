@@ -33,7 +33,10 @@
         background-color: transparent;
         border: none;
         outline: none;
-        cursor: pointer;
+            position: relative;
+            cursor: pointer;
+            top: 0%;
+            transition: top .5s;
 
         .icon {
             height: 50%;
@@ -262,12 +265,19 @@ body:has(#menu-state:checked) {
             top: var(--nav-height);
             transition: top .5s 1s;
         }
+
+        .cart-container{
+            top: -100%;
+            transition: top .5s;
+        }
+
     }
 
     .side-bar {
         top: 0%;
         transition: top 1s;
     }
+
 }
 
 
